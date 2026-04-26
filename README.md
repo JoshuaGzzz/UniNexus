@@ -1,46 +1,38 @@
 # UniNexus: The Spartan Student Marketplace
 
-**UniNexus** is a JavaFX-based desktop application designed as a dedicated marketplace for students. The system facilitates buying, selling, and administrative moderation through a structured Model-View-Controller (MVC) architecture and a robust Data Access Object (DAO) layer.
+![UniNexus Logo](b87f3ed7-c625-429c-ac7c-b0ea1e0401c2.png)
+
+**UniNexus** is a JavaFX-based desktop application developed for the **CpE 2204** section. It serves as a dedicated marketplace where students can buy, sell, and moderate item listings. The system is built on a structured **MVC-DAO** architecture to ensure data integrity and a responsive user interface [cite: 20-27].
 
 ---
 
 ## 🛠 Tech Stack
 
-* [cite_start]**Language:** Java (Main Backend) [cite: 13]
-* [cite_start]**UI Framework:** JavaFX [cite: 14]
-* [cite_start]**Database:** SQLite (Persistent data for users and products) [cite: 15]
-* [cite_start]**Local Session:** JSON (Jackson-databind for cart serialization) [cite: 16, 150]
-* [cite_start]**Environment:** Maven (Dependency management) [cite: 17]
+* **Language:** Java (Backend/Core Logic) [cite: 13]
+* **UI Framework:** JavaFX [cite: 14]
+* **Database:** SQLite (Persistent storage) [cite: 15]
+* **Local Session:** JSON (Jackson-databind for cart serialization) [cite: 16, 147]
+* **Environment:** Maven (Dependency and build management) [cite: 17]
 
 ---
 
 ## 🏗 System Architecture
 
-[cite_start]The project follows a strict **MVC-DAO** pattern to separate concerns and ensure the UI remains responsive during database operations [cite: 20-27, 32]:
-
-* [cite_start]**View:** Pure JavaFX FXML files for layout[cite: 21].
-* [cite_start]**Controller:** Acts as the middleman, handling user input and communicating with models[cite: 25].
-* [cite_start]**Model:** Handles data values and state management[cite: 23].
-* [cite_start]**DAO (Data Access Object):** A dedicated layer for all SQLite interactions[cite: 26].
-* [cite_start]**Singleton Pattern:** Ensures a single database connection is maintained across all screens to prevent database locking[cite: 28, 29].
+The project utilizes specific design patterns to separate UI from business logic:
+* **Model-View-Controller (MVC):** Separates the pure frontend UI (View), the data handling (Model), and the middleman logic (Controller) [cite: 20-25].
+* **Data Access Object (DAO):** A specialized layer responsible for all SQLite communication, preventing direct database calls from the UI [cite: 25, 26].
+* **Singleton Pattern:** Used for the database connection manager to maintain a single active connection across all application screens [cite: 28, 29].
+* **Concurrency:** Heavy database queries and authentication tasks are wrapped in `javafx.concurrent.Task` to prevent UI freezing [cite: 39, 40].
 
 ---
 
-## 🚀 Features & User Flow
+## 🚀 Key Features
 
-### 1. Identity & Data Gateway
-* [cite_start]**Session Check:** Upon launch, the app checks for a local JSON session[cite: 61].
-* [cite_start]**Authentication:** Secure Login and Registration screens[cite: 4, 5, 63].
-* [cite_start]**Role-Based Routing:** Users are routed to either the **Buyer Feed** or **Admin Dashboard** based on their account role (Client vs. Admin) [cite: 64-66].
-
-### 2. Buyer Experience
-* [cite_start]**Discovery:** A dynamic TilePane feed where users can browse approved products[cite: 81, 122].
-* [cite_start]**Search/Filter:** Real-time filtering using SQL `LIKE` operators[cite: 123].
-* [cite_start]**Cart Management:** A local cart system utilizing Jackson for JSON serialization, allowing users to save their cart to the hard drive between sessions[cite: 147, 148].
-
-### 3. Seller & Admin Experience
-* [cite_start]**Sell Form:** Strict data entry validation, including type-casting for prices and description length limits to prevent UI lag [cite: 91, 99-101].
-* [cite_start]**Moderation:** Admins can view a table of "Pending" items to either **Approve** (update to DB) or **Reject** (delete row) [cite: 95-97].
+* **Identity & Data Gateway:** Secure login and registration with role-based routing (Client vs. Admin) [cite: 102-104, 108].
+* **Buyer Discovery:** A dynamic feed using `TilePane` and `ObservableList` to display approved products with real-time `LIKE` operator filtering [cite: 122-125].
+* **Local Transactions:** A cart system that serializes item lists into a local `cart.json` file on the hard drive for session persistence [cite: 147-148].
+* **Seller Pipeline:** A dedicated form for product submission with strict data entry validation, including price type-casting and description length limits [cite: 98-101, 132].
+* **Admin Moderation:** A dashboard to approve or reject pending product submissions, updating the SQLite database state accordingly [cite: 135-136].
 
 ---
 
@@ -48,19 +40,19 @@
 
 ```text
 StudentMarketplace/
-├── pom.xml                   # Maven dependencies
-├── app_data/                 # Local storage
-│   ├── cart.json             # Serialized cart data
-│   └── images/               # Uploaded product images
+├── pom.xml                   # Maven dependencies [cite: 43]
+├── app_data/                 # Local storage for session files
+│   ├── cart.json             # Serialized cart data [cite: 185]
+│   └── images/               # Uploaded product images [cite: 186]
 ├── src/main/java/com/marketplace/
-│   ├── Main.java             # Entry point & Routing
-│   ├── UserSession.java      # Session Singleton
-│   ├── model/                # User and Product entities
-│   ├── dao/                  # Database logic (UserDAO, ProductDAO)
-│   └── controller/           # UI logic for all screens
+│   ├── Main.java             # Entry point and routing logic [cite: 192]
+│   ├── UserSession.java      # Session Singleton [cite: 192]
+│   ├── model/                # User and Product entity classes [cite: 193-195]
+│   ├── dao/                  # Database logic (UserDAO, ProductDAO) [cite: 207-210]
+│   └── controller/           # UI logic for every functional screen [cite: 212-222]
 └── src/main/resources/
-    ├── view/                 # FXML layouts
-    └── database/             # marketplace.db
+    ├── view/                 # FXML layout files [cite: 224-238]
+    └── database/             # marketplace.db SQLite file [cite: 239-240]
 ```
 
 ---
@@ -68,11 +60,11 @@ StudentMarketplace/
 ## 👥 The Team: CpE 2204
 
 ### 2ND GROUP
-* [cite_start]**Group 1:** Identity & Data Gateway (Authentication) [cite: 102, 281]
-* [cite_start]**Group 4:** The Seller & Admin Experience [cite: 127, 284, 285]
-* [cite_start]**Group 7:** The Buyer Experience (Feed & Discovery) [cite: 117, 282, 283]
-* [cite_start]**Group 8:** Cart & Local Transactions [cite: 140, 286, 287]
-* [cite_start]**Group 9:** Integration, QA & Provisioning (DevOps) [cite: 153, 288, 289]
+* **Group 1:** Identity & Data Gateway (Authentication & Database Foundation) [cite: 102-111, 281].
+* **Group 4:** The Seller & Admin Experience (Forms, Validation, & Moderation) [cite: 127-136, 284].
+* **Group 7:** The Buyer Experience (Feed, Discovery, & Background Tasks) [cite: 117-125, 282].
+* **Group 8:** Cart & Local Transactions (JSON Serialization & Session Caching) [cite: 140-151, 286].
+* **Group 9:** Integration, QA & Provisioning (DevOps, Maven Setup, & Routing) [cite: 153-169, 288].
 
 ---
 
