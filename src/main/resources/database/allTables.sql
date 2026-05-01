@@ -124,5 +124,5 @@ CREATE TABLE IF NOT EXISTS transactions (
 -- products for personal items like shirts, jersey, computer, tablets, shoes
 -- rentals for dorm, house, apartment
 -- resources for sharing lab report, lecture notes, software (e.g you shared me your cracked the multism software)
-
---I think later you'll create more table for more UI
+-- transication table for payment or cart
+-- I think later you'll create more table for more UI
