@@ -1,0 +1,236 @@
+/* ============================================
+    UniNexus - Spartan Dark Theme (High Contrast)
+    Deep Charcoal UI with Black-Text Item Cards
+   ============================================ */
+
+.root {
+    -fx-font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    -fx-background-color: white;
+    -fx-text-fill: #1a1a1a;
+}
+
+.label {
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ==================== HEADER & PANELS ==================== */
+.market-header {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.market-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9D2034; /* Spartan Red Branding */
+}
+
+.market-subtitle {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #e0e0e0;
+}
+
+.market-content {
+    -fx-background-color: transparent;
+}
+
+.market-side-panel {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+}
+
+.market-scroll {
+    -fx-background: #121212;
+    -fx-border-color: #333333;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.market-tile-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 6;
+}
+
+/* ==================== MARKETPLACE CARDS ==================== */
+.market-card {
+    /* Set to light gray so Black text is visible */
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-spacing: 8;
+}
+
+.market-card-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a; /* Dark text for light card */
+}
+
+/* Rental/Sale & Price Styling - FORCED BLACK */
+.market-card-rental,
+.market-card-sale,
+.market-card-price {
+    -fx-text-fill: #000000 !important;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.market-total {
+    -fx-text-fill: #9D2034;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+/* ==================== BUTTONS (SPARTAN RED) ==================== */
+.button {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #7a1828; /* Darker Red */
+}
+
+/* View Details & Add to Cart on Cards */
+.market-button-view, .market-button-cart {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Report Button - Outlined for Spartan Theme */
+.market-button-report {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9D2034;
+    -fx-border-color: #9D2034;
+    -fx-border-width: 1;
+}
+
+.market-button-report:hover {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+}
+
+/* ==================== INPUTS & UI ELEMENTS ==================== */
+.text-field, .text-area {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-border-color: #cfcfcf;
+    -fx-text-fill: #000000;
+    -fx-prompt-text-fill: #808080;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.text-area .text {
+    -fx-fill: #000000;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-border-color: #9D2034;
+    -fx-text-fill: #000000;
+}
+
+.text-area:focused .content {
+    -fx-background-color: white;
+}
+
+.text-area:focused .text {
+    -fx-fill: #000000;
+}
+
+/* ==================== COMBOBOX ==================== */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #cfcfcf;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #000000;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: white;
+}
+
+.combo-box:focused {
+    -fx-border-color: #9D2034;
+}
+
+/* ==================== LIST VIEW ==================== */
+.list-view {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-border-color: #cfcfcf;
+}
+
+.table-view {
+    -fx-background-color: #1a1a1a;
+    -fx-control-inner-background: #262626;
+    -fx-border-color: #404040;
+    -fx-text-fill: #ffffff;
+}
+
+/* Table and List selection */
+.table-row-cell:filled:selected, .list-cell:filled:selected {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+}
+
+/* ==================== PAYMENT DIALOG ==================== */
+.payment-dialog {
+    -fx-background-color: linear-gradient(to bottom, #1a1a1a, #121212);
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.payment-options {
+    -fx-background-color: #262626;
+    -fx-border-color: #404040;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10;
+}
+
+.payment-options .radio-button {
+    -fx-text-fill: #e0e0e0;
+}
+
+.payment-options .radio-button:focused {
+    -fx-border-color: #9D2034;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.payment-preview {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8;
+}
+
+/* ScrollPane Transparency */
+.scroll-pane, .scroll-pane .viewport {
+    -fx-background-color: transparent;
+    -fx-background: white;
+}

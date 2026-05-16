@@ -1,0 +1,211 @@
+/* ==================================================
+   MODERN REFUND REQUEST UI - JAVAFX CSS
+================================================== */
+
+.root-container {
+    -fx-background-color: #f3f4f6;
+    -fx-font-family: "Segoe UI";
+}
+
+/* ===============================
+   TOP NAVIGATION
+================================ */
+.top-navbar {
+    -fx-background-color: white;
+    -fx-padding: 22 30 22 30;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 0 1 0;
+}
+
+.page-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b91c1c;
+}
+
+.page-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+/* ===============================
+   MAIN CONTENT
+================================ */
+.main-wrapper {
+    -fx-padding: 35;
+}
+
+.refund-card {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-radius: 22;
+    -fx-border-color: #e5e7eb;
+    -fx-padding: 35;
+
+    -fx-effect: dropshadow(gaussian,
+            rgba(0, 0, 0, 0.08),
+            18,
+            0.2,
+            0,
+            4);
+}
+
+.section-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+.section-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.field-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* ===============================
+   COMBO BOX
+================================ */
+.modern-combo-box.combo-box-base {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 13px;
+}
+
+.modern-combo-box.combo-box-base:focused {
+    -fx-border-color: #dc2626;
+    -fx-focus-color: #dc2626;
+    -fx-faint-focus-color: transparent;
+}
+
+.modern-combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #111827;
+    -fx-padding: 8 10 8 10;
+}
+
+.modern-combo-box .arrow-button {
+    -fx-background-color: white;
+}
+
+.modern-combo-box .combo-box-popup .list-cell:selected {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+}
+
+.modern-combo-box .combo-box-popup .list-cell:hover {
+    -fx-background-color: #fef2f2;
+    -fx-text-fill: #111827;
+}
+
+.modern-combo-box .list-cell:filled {
+    -fx-text-fill: #111827;
+}
+
+/* ===============================
+   TEXT AREA
+================================ */
+.modern-text-area {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-font-size: 13px;
+    -fx-text-fill: #111827;
+}
+
+.modern-text-area .text {
+    -fx-fill: #111827;
+}
+
+.modern-text-area:focused {
+    -fx-border-color: #dc2626;
+    -fx-highlight-fill: #fecaca;
+    -fx-highlight-text-fill: #111827;
+    -fx-focus-color: #dc2626;
+    -fx-faint-focus-color: transparent;
+}
+
+.modern-text-area .content {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-text-fill: #111827;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.primary-button {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 12 22 12 22;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.secondary-button {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 12 18 12 18;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.outline-button {
+    -fx-background-color: white;
+    -fx-text-fill: #dc2626;
+    -fx-border-color: #dc2626;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 12 18 12 18;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.outline-button:hover {
+    -fx-background-color: #fef2f2;
+}
+
+.ghost-button {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 12 18 12 18;
+    -fx-cursor: hand;
+}
+
+.ghost-button:hover {
+    -fx-background-color: #e5e7eb;
+}
+
+.modern-combo-box .list-cell,
+.modern-combo-box .list-cell:filled,
+.modern-combo-box .list-cell:filled:focused,
+.modern-combo-box .list-cell:filled:focused:selected {
+    -fx-text-fill: #111827;
+    -fx-background-color: white;
+}

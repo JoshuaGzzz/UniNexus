@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/20" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.studentmarketplace.controller.PaymentSelectionController" 
+      fx:id="paymentRoot" 
+      spacing="15" 
+      prefWidth="400"
+      style="-fx-background-color: white; -fx-border-color: #d9d9d9; -fx-border-width: 1; -fx-background-radius: 8; -fx-border-radius: 8;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox spacing="5">
+        <Label text="Payment Selection" 
+               style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+        <Label text="Select your preferred method to complete your order." 
+               wrapText="true" 
+               style="-fx-text-fill: #666666; -fx-font-size: 13;"/>
+    </VBox>
+
+    <Separator/>
+
+    <VBox spacing="12" style="-fx-padding: 10 0 10 0;">
+        <RadioButton fx:id="codRadio" text="Cash on Delivery (COD)" 
+                     style="-fx-font-size: 14; -fx-cursor: hand;"/>
+        
+        <RadioButton fx:id="ewalletRadio" text="QR Ph / Maya / GCash" 
+                     style="-fx-font-size: 14; -fx-cursor: hand;"/>
+        
+        <RadioButton fx:id="cardRadio" text="Credit / Debit Card (Visa/Mastercard)" 
+                     style="-fx-font-size: 14; -fx-cursor: hand;"/>
+    </VBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="15" 
+          style="-fx-background-color: #f9f9f9; -fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #eeeeee;">
+        <ImageView fx:id="paymentIconView" fitWidth="45" fitHeight="30" preserveRatio="true"/>
+        <Label fx:id="selectionLabel" text="No payment method selected" 
+               style="-fx-text-fill: #444444; -fx-font-style: italic;"/>
+    </HBox>
+
+    <StackPane>
+        <ProgressIndicator fx:id="verificationIndicator" visible="false" maxWidth="30" maxHeight="30"/>
+    </StackPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel" cancelButton="true"
+                style="-fx-background-color: white; -fx-text-fill: #666666; -fx-border-color: #cccccc; -fx-font-weight: bold; -fx-padding: 8 15; -fx-cursor: hand;"/>
+        
+        <Button fx:id="placeOrderButton" text="Place Order" onAction="#handlePlaceOrder" defaultButton="true"
+                style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-cursor: hand; -fx-background-radius: 4;"/>
+    </HBox>
+</VBox>
+

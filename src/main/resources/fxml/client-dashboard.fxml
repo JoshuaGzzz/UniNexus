@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.ClientDashboardController"
+            stylesheets="@../css/global.css"
+            styleClass="root"
+            style="-fx-background-color: white;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-bar" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1px 0;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <ImageView fitHeight="45" preserveRatio="true">
+                <image>
+                    <Image url="@../images/payment/uninexus-logo.png"/>
+                </image>
+            </ImageView>
+
+            <Label fx:id="welcomeLabel" text="Welcome, Demo Client! (Seller)" 
+                   style="-fx-text-fill: #9D2034; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+    
+    <left>
+        <VBox spacing="12" prefWidth="220" styleClass="sidebar" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 1px 0 0;">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+
+            <Button text="Profile" onAction="#handleOpenProfile" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-alignment: CENTER_LEFT;"/>
+            <Button text="Dashboard" maxWidth="Infinity" style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-font-weight: bold;"/>
+            <Button text="My Marketplace" onAction="#handleOpenMyMarketplace" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-alignment: CENTER_LEFT;"/>
+            <Button text="Browse Marketplace" onAction="#handleBrowseMarketplace" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-alignment: CENTER_LEFT;"/>
+            <Button text="Request Refund" onAction="#handleRequestRefund" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-alignment: CENTER_LEFT;"/>
+            <Button text="My Refunds" onAction="#handleMyRefunds" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-alignment: CENTER_LEFT;"/>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+
+            <Button text="Logout" onAction="#handleLogout" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #9D2034; -fx-border-color: #9D2034; -fx-border-radius: 5;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <HBox spacing="15" style="-fx-padding: 15; -fx-background-color: white;">
+            <VBox spacing="8" prefWidth="460" style="-fx-background-color: white;">
+                <Label text="Create UniNexus Post" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+
+                <ComboBox fx:id="postTypeCombo" promptText="Post Type" maxWidth="Infinity" />
+                
+                <TextField fx:id="titleField" promptText="Title"/>
+                <TextField fx:id="locationField" promptText="Location"/>
+                <TextField fx:id="priceField" promptText="Price"/>
+                
+                <TextArea fx:id="descriptionArea" promptText="Description" prefRowCount="4" wrapText="true"/>
+
+                <VBox fx:id="rentalFieldsBox" spacing="6">
+                    <Label text="Dormitory / Rental Details" style="-fx-text-fill: #666666; -fx-font-weight: bold;"/>
+                    <TextField fx:id="bedroomsField" promptText="Bedrooms" text="1"/>
+                    <CheckBox fx:id="furnishedCheck" text="Furnished" style="-fx-text-fill: #333333;"/>
+                </VBox>
+
+                <VBox fx:id="saleFieldsBox" spacing="6" visible="false" managed="false">
+                    <Label text="Product (Sale) Details" style="-fx-text-fill: #666666; -fx-font-weight: bold;"/>
+                    <ComboBox fx:id="conditionCombo" promptText="Condition" maxWidth="Infinity"/>
+                    <ComboBox fx:id="categoryCombo" promptText="Category" maxWidth="Infinity"/>
+                </VBox>
+
+                <VBox fx:id="resourceFieldsBox" spacing="6" visible="false" managed="false">
+                    <Label text="Academic Resource Details" style="-fx-text-fill: #666666; -fx-font-weight: bold;"/>
+                    <ComboBox fx:id="resourceTypeCombo" promptText="Resource Type" maxWidth="Infinity"/>
+                    <TextField fx:id="downloadLinkField" promptText="Download Link"/>
+                </VBox>
+
+                <HBox spacing="8">
+                    <TextField fx:id="imagePathField" promptText="Image path" editable="false" HBox.hgrow="ALWAYS" style="-fx-background-color: #f5f5f5; -fx-text-fill: #666666; -fx-border-color: #d0d0d0;"/>
+                    <Button text="Upload Image" onAction="#handleChooseImage" style="-fx-background-color: #9D2034; -fx-text-fill: white;"/>
+                </HBox>
+                
+                <ImageView fx:id="imagePreview" fitWidth="200" fitHeight="120" preserveRatio="true" smooth="true"/>
+
+                <HBox spacing="10">
+                    <Button text="Create" onAction="#handleCreatePost" styleClass="button" style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20;"/>
+                    <Button text="Refresh" onAction="#handleRefresh" styleClass="button" style="-fx-background-color: #666666; -fx-text-fill: white; -fx-padding: 8 20;"/>
+                    <Button text="Archive Selected" onAction="#handleArchiveSelected" styleClass="button" style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-padding: 8 20;"/>
+                </HBox>
+                <Label fx:id="statusLabel" style="-fx-text-fill: #9D2034;"/>
+            </VBox>
+
+            <VBox spacing="8" HBox.hgrow="ALWAYS" style="-fx-background-color: white;">
+                <Label text="My Posts" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                <ListView fx:id="myPostsListView" VBox.vgrow="ALWAYS" styleClass="list-view" />
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
+

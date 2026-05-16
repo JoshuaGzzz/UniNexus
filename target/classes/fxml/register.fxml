@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.RegisterController"
+            stylesheets="@../css/global.css, @../css/dark-theme.css">
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" prefWidth="480" maxWidth="480" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <Label text="Create Account" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+            <TextField fx:id="usernameField" promptText="Username"/>
+            <TextField fx:id="emailField" promptText="Email"/>
+            <TextField fx:id="fullNameField" promptText="Full name"/>
+            <TextField fx:id="studentIdField" promptText="Student ID"/>
+            <TextField fx:id="universityField" promptText="University"/>
+            <PasswordField fx:id="passwordField" promptText="Password (min 8 chars)"/>
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm password"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Register" onAction="#handleRegister"/>
+                <Button text="Back to Login" onAction="#handleBackToLogin"/>
+            </HBox>
+
+            <Label fx:id="messageLabel" style="-fx-text-fill: #C0392B;"/>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.RefundRequestController"
+            styleClass="root-container">
+<stylesheets>
+    <URL value="@../css/refund-request.css" />
+</stylesheets>
+    <!-- TOP NAVIGATION -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              styleClass="top-navbar">
+
+            <VBox spacing="3">
+
+                <Label text="Request a Refund"
+                       styleClass="page-title"/>
+
+                <Label text="Submit and manage your refund concerns"
+                       styleClass="page-subtitle"/>
+
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="My Refund Status"
+                    onAction="#handleViewStatus"
+                    styleClass="secondary-button"/>
+
+            <Button text="← Back"
+                    onAction="#handleBack"
+                    styleClass="outline-button"/>
+
+        </HBox>
+    </top>
+
+    <!-- MAIN CONTENT -->
+    <center>
+
+        <StackPane styleClass="main-wrapper">
+
+            <VBox spacing="22"
+                  maxWidth="760"
+                  styleClass="refund-card">
+
+                <!-- STATUS MESSAGE -->
+                <Label fx:id="messageLabel"
+                       text=""
+                       wrapText="true"
+                       managed="false"
+                       visible="false"/>
+
+                <!-- FORM TITLE -->
+                <VBox spacing="5">
+
+                    <Label text="Refund Form"
+                           styleClass="section-title"/>
+
+                    <Label text="Please complete the form below to request a refund."
+                           styleClass="section-subtitle"/>
+
+                </VBox>
+
+                <!-- ORDER SELECTION -->
+                <VBox spacing="8">
+
+                    <Label text="Select the order you want to refund"
+                           styleClass="field-label"/>
+
+                    <ComboBox fx:id="orderDropdown"
+                              promptText="Select an order"
+                              prefHeight="46"
+                              styleClass="modern-combo-box"/>
+
+                </VBox>
+
+                <!-- REFUND REASON -->
+                <VBox spacing="8">
+
+                    <Label text="Describe the issue"
+                           styleClass="field-label"/>
+
+                    <TextArea fx:id="reasonArea"
+                              promptText="Explain why you are requesting a refund..."
+                              wrapText="true"
+                              prefRowCount="6"
+                              styleClass="modern-text-area"/>
+
+                </VBox>
+
+                <!-- BUTTONS -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="12">
+
+<Button text="Submit Refund Request"
+        fx:id="submitButton"
+        onAction="#handleSubmit"
+        styleClass="primary-button"/>
+
+                    <Button text="Clear"
+                            onAction="#handleClear"
+                            styleClass="ghost-button"/>
+
+                </HBox>
+
+            </VBox>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.ClientMarketplaceController"
+            stylesheets="@../css/global.css"
+            styleClass="root"
+            style="-fx-background-color: white;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 12; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1px 0;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="40" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/payment/uninexus-logo.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="welcomeLabel" text="My Marketplace" 
+                       style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+            </HBox>
+            
+            <Pane HBox.hgrow="ALWAYS"/>
+            
+            <Button text="Back to Dashboard" onAction="#handleBackToDashboard" 
+                    style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="Browse Public Listings" onAction="#handleBrowsePublicListings" 
+                    style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="14" style="-fx-padding: 14;">
+            <VBox spacing="8" prefWidth="430">
+                <Label text="My Posts" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Button text="Refresh" onAction="#handleRefresh" 
+                            style="-fx-background-color: #666666; -fx-text-fill: white;"/>
+                    <Label fx:id="messageLabel" style="-fx-text-fill: #9D2034; -fx-font-weight: bold;"/>
+                </HBox>
+                <ListView fx:id="postsListView" VBox.vgrow="ALWAYS" styleClass="list-view"/>
+            </VBox>
+
+            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                <Label text="Post Details" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                <GridPane hgap="8" vgap="8" style="-fx-background-color: #f9f9f9; -fx-padding: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <Label text="Post ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-text-fill: #666666;"/>
+                    <Label fx:id="postIdLabel" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-font-weight: bold;"/>
+                    <Label text="Status:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-text-fill: #666666;"/>
+                    <Label fx:id="statusLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-text-fill: #9D2034; -fx-font-weight: bold;"/>
+                    <Label text="Created:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-text-fill: #666666;"/>
+                    <Label fx:id="createdAtLabel" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                </GridPane>
+
+                <TextField fx:id="titleField" promptText="Title"/>
+                <TextField fx:id="locationField" promptText="Location"/>
+                <TextField fx:id="priceField" promptText="Price per month"/>
+                <TextArea fx:id="descriptionArea" promptText="Description" prefRowCount="8" VBox.vgrow="ALWAYS"/>
+
+                <HBox spacing="10">
+                    <Button text="Save Changes" onAction="#handleSaveChanges" 
+                            style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20;"/>
+                    <Button text="Delete Post" onAction="#handleDeletePost" 
+                            style="-fx-background-color: white; -fx-text-fill: #9D2034; -fx-border-color: #9D2034; -fx-border-radius: 5; -fx-padding: 10 20;"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
+

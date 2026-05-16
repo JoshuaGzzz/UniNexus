@@ -1,0 +1,596 @@
+/* ============================================
+    UniNexus - Global Stylesheet
+    Spartan Red & White Design System
+   ============================================ */
+
+/* ==================== ROOT COLORS & TYPOGRAPHY ==================== */
+.root {
+    /* Primary Colors */
+    -fx-primary-color: #9D2034;          /* Spartan Red */
+    -fx-secondary-color: #ffffff;        /* White background */
+    -fx-background-color: #ffffff;
+    /* Dark Text */
+    -fx-text-fill: #1a1a1a;
+
+    /* Neutral Palette */
+    -fx-light-bg: #f5f5f5;
+    -fx-border-light: #e0e0e0;
+    -fx-text-secondary: #666666;
+    -fx-text-tertiary: #999999;
+
+    /* Typography */
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 12px;
+    -fx-line-spacing: 1.5;
+}
+
+/* Ensure all container backgrounds stay white */
+.root, .vbox, .hbox, .border-pane, .scroll-pane, .scroll-pane .viewport {
+    -fx-background-color: white;
+}
+
+/* ==================== BUTTONS ==================== */
+.button {
+    -fx-padding: 10px 16px;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.button:default {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.button:default:hover {
+    -fx-background-color: #7a1828;
+    -fx-effect: dropshadow(gaussian, rgba(157, 32, 52, 0.3), 8, 0, 0, 2);
+}
+
+.button:default:pressed {
+    -fx-background-color: #5e1220;
+}
+
+/* Secondary Button */
+.button.secondary {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+}
+
+.button.secondary:hover {
+    -fx-background-color: #e8e8e8;
+}
+
+/* ==================== TEXT INPUTS ==================== */
+.text-field,
+.text-area {
+    -fx-padding: 10px 12px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-font-size: 12px;
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-text-fill: #000000; /* Fixed to black */
+}
+
+/* Ensure typed text in TextArea remains visible across themes/platform defaults */
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.text-area .text {
+    -fx-fill: #1a1a1a;
+}
+
+/* Create-post form inputs: force readable text while typing across user-agent themes */
+.create-post-input {
+    -fx-text-fill: #111111;
+    -fx-prompt-text-fill: #777777;
+    -fx-control-inner-background: #ffffff;
+    -fx-highlight-fill: #9D2034;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.text-area.create-post-input {
+    -fx-text-fill: #111111;
+    -fx-control-inner-background: #ffffff;
+}
+
+.text-area.create-post-input .content {
+    -fx-background-color: #ffffff;
+}
+
+.text-area.create-post-input .text {
+    -fx-fill: #111111;
+}
+
+.text-field:focused,
+.text-area:focused,
+.text-area:focused .content {
+    -fx-border-color: #9D2034 !important;
+    -fx-background-color: white !important;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #9D2034;
+}
+
+.text-field::placeholder {
+    -fx-text-fill: #999999;
+}
+
+/* ==================== COMBOBOX ==================== */
+.combo-box {
+    -fx-padding: 8px 12px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-font-size: 12px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #9D2034;
+    -fx-border-width: 2px;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d0d0;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #fde8eb;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: #ffffff;
+}
+
+/* ==================== COMBOBOX & LISTVIEW (Marketplace) ==================== */
+.combo-box, .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+}
+
+.combo-box .list-cell, .list-view .list-cell, .list-view .list-cell .text {
+    -fx-background-color: white;
+    -fx-text-fill: #000000 !important; /* Forces cart item text to black */
+    -fx-fill: #000000 !important;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #9D2034;
+}
+
+/* ==================== LABELS ==================== */
+.label {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 12px;
+}
+
+.label.title-1 {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.label.title-2 {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.label.title-3 {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.label.subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: #666666;
+}
+
+/* ==================== SCROLLBAR ==================== */
+.scroll-bar {
+    -fx-font-size: 10px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+}
+
+/* ==================== LISTVIEW ==================== */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 5, 0, 0, 2);
+}
+
+.list-view:focused {
+    -fx-border-color: #9D2034;
+    -fx-border-width: 2px;
+}
+
+.list-view .list-cell {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #f9f9f9;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #fde8eb;
+    -fx-text-fill: #1a1a1a;
+}
+
+.list-view .list-cell:filled:selected:focused {
+    -fx-background-color: #f9c2c9;
+}
+
+/* ==================== TABLEVIEW ==================== */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-padding: 5px;
+}
+
+/* HEADER BACKGROUND */
+.table-view .column-header-background {
+    -fx-background-color: #dc2626;
+    -fx-background-radius: 12px 12px 0 0;
+}
+
+/* INDIVIDUAL HEADER */
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 12px 10px;
+}
+
+/* HEADER TEXT */
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* TABLE ROWS */
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f1f5f9;
+    -fx-table-cell-border-color: #f1f5f9;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #fcfcfc;
+}
+
+/* HOVER ROW */
+.table-row-cell:hover {
+    -fx-background-color: #fef2f2;
+}
+
+/* SELECTED ROW */
+.table-row-cell:selected {
+    -fx-background-color: #fee2e2;
+}
+
+/* TABLE CELLS */
+.table-view .table-cell {
+    -fx-padding: 12px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #1f2937;
+    -fx-border-color: transparent;
+}
+
+/* EMPTY TABLE */
+.table-view .placeholder .label {
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 14px;
+}
+
+/* SCROLLBAR */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #d1d5db;
+    -fx-background-radius: 10px;
+}
+
+.table-view .scroll-bar .thumb:hover {
+    -fx-background-color: #9ca3af;
+}
+
+/* ==================== ADMIN TABLE (Spartan) ==================== */
+.admin-table {
+    -fx-background-color: white !important;
+    -fx-control-inner-background: white !important;
+    -fx-table-cell-border-color: #e0e0e0 !important;
+}
+
+.admin-table .column-header, .admin-table .filler {
+    -fx-background-color: #f5f5f5 !important;
+    -fx-border-color: #e0e0e0 !important;
+    -fx-border-width: 0 0 1px 0 !important;
+}
+
+.admin-table .column-header .label {
+    -fx-text-fill: #9D2034 !important;
+    -fx-font-weight: bold;
+}
+
+.admin-table .table-row-cell:selected {
+    -fx-background-color: #9D2034 !important;
+    -fx-text-fill: white !important;
+}
+
+/* ==================== CHECKBOX ==================== */
+.check-box {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-padding: 5px 0;
+}
+
+.check-box .box {
+    -fx-border-radius: 4px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #9D2034;
+    -fx-border-color: #7a1828;
+}
+
+.check-box:selected .mark {
+    -fx-text-fill: #ffffff;
+}
+
+/* ==================== TOOLTIP ==================== */
+.tooltip {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 11px;
+    -fx-padding: 8px 12px;
+    -fx-border-radius: 4px;
+}
+
+/* ==================== PROGRESSBAR ==================== */
+.progress-bar {
+    -fx-padding: 5px;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #9D2034;
+}
+
+.progress-indicator {
+    -fx-progress-color: #9D2034;
+}
+
+/* ==================== SEPARATOR ==================== */
+.separator {
+    -fx-padding: 5px 0;
+}
+
+.separator .line {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0.5px;
+}
+
+.separator:vertical .line {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* ==================== SPACING UTILITIES ==================== */
+.vbox-spacing-5 {
+    -fx-spacing: 5px;
+}
+
+.vbox-spacing-10 {
+    -fx-spacing: 10px;
+}
+
+.vbox-spacing-15 {
+    -fx-spacing: 15px;
+}
+
+.vbox-spacing-20 {
+    -fx-spacing: 20px;
+}
+
+.hbox-spacing-5 {
+    -fx-spacing: 5px;
+}
+
+.hbox-spacing-10 {
+    -fx-spacing: 10px;
+}
+
+.hbox-spacing-15 {
+    -fx-spacing: 15px;
+}
+
+/* ==================== PADDING UTILITIES ==================== */
+.padding-10 {
+    -fx-padding: 10px;
+}
+
+.padding-15 {
+    -fx-padding: 15px;
+}
+
+.padding-20 {
+    -fx-padding: 20px;
+}
+
+/* ==================== TEXT STYLES ==================== */
+.text-success {
+    -fx-text-fill: #9D2034;
+}
+
+.text-error {
+    -fx-text-fill: #d32f2f;
+}
+
+.text-warning {
+    -fx-text-fill: #f57c00;
+}
+
+.text-info {
+    -fx-text-fill: #0288d1;
+}
+
+/* ==================== CONTAINER BACKGROUNDS ==================== */
+.container {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 5, 0, 0, 2);
+}
+
+.container.light {
+    -fx-background-color: #f5f5f5;
+}
+
+/* ==================== HEADER STYLES ==================== */
+.header-primary {
+    -fx-background-color: linear-gradient(to right, #1b1b2f, #16213e);
+    -fx-text-fill: #ffffff;
+    -fx-padding: 20px;
+    -fx-border-color: #0f3460;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.header-secondary {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 15px;
+}
+
+/* ==================== MARKETPLACE ITEM CARDS ==================== */
+
+.market-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-spacing: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* Product title */
+.market-card-title {
+    -fx-text-fill: #000000;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* FORCING BLACK ON ALL LABELS */
+.market-card-price,
+.market-card-rental,
+.market-card-price .text,
+.market-card-rental .text,
+.market-card-sale,
+.market-card-sale .text {
+    -fx-text-fill: #000000 !important;
+    -fx-fill: #000000 !important;
+    -fx-opacity: 1.0 !important;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* ==================== CARD BUTTONS (Spartan Red) ==================== */
+
+.market-button-view, .market-button-cart {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.market-button-view:hover, .market-button-cart:hover {
+    -fx-background-color: #7a1828;
+}
+
+/* Outlined Report Button */
+.market-button-report {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9D2034;
+    -fx-border-color: #9D2034;
+    -fx-border-width: 1px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-padding: 6 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.market-button-report:hover {
+    -fx-background-color: #9D2034;
+    -fx-text-fill: white;
+}
+
+/* ==================== LAYOUT & UI HELPERS ==================== */
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: #d9d9d9;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9D2034;
+}
+
+.cart-total {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9D2034;
+}
+
+
+
+/* ==================== HOVER EFFECTS ==================== */
+.hover-lift {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.list-cell:hover {
+    -fx-effect: dropshadow(gaussian, rgba(157, 32, 52, 0.1), 6, 0, 0, 1);
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.LoginController"
+            stylesheets="@../css/global.css, @../css/dark-theme.css">
+
+    <center>
+        <VBox spacing="12" alignment="CENTER" prefWidth="420" maxWidth="420" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <Label text="UniNexus" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            <Label text="Login" style="-fx-font-size: 18;"/>
+
+            <TextField fx:id="usernameField" promptText="Username"/>
+            <PasswordField fx:id="passwordField" promptText="Password"/>
+            <TextField fx:id="visiblePasswordField" promptText="Password" visible="false" managed="false"/>
+            <CheckBox fx:id="showPasswordCheckBox" text="Show Password"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Login" onAction="#handleLogin"/>
+                <Button text="Register" onAction="#handleOpenRegister"/>
+                <Button text="Browse Listings" onAction="#handleOpenMarketplace"/>
+            </HBox>
+
+            <Label fx:id="messageLabel" style="-fx-text-fill: #C0392B;"/>
+
+            <Label text="Demo client: client / password123" style="-fx-text-fill: #555;"/>
+            <Label text="Demo admin: admin / password123" style="-fx-text-fill: #555;"/>
+        </VBox>
+    </center>
+</BorderPane>

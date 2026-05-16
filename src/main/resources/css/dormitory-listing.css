@@ -1,0 +1,265 @@
+/* ============================================
+    UniNexus - Dormitory Listing CSS
+   Modern Steam-like Design
+   ============================================ */
+
+/* ==================== ROOT & COLORS ==================== */
+* {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.root {
+    -fx-font-size: 12px;
+    -fx-base: #ffffff;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ==================== HEADER SECTION ==================== */
+.header-section {
+    -fx-background-color: linear-gradient(to right, #1b1b2f, #16213e);
+    -fx-border-color: #0f3460;
+    -fx-border-width: 0 0 2 0;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* ==================== SEARCH BAR ==================== */
+.search-field {
+    -fx-font-size: 13px;
+    -fx-padding: 12px 15px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1a1a;
+}
+
+.search-field:focused {
+    -fx-border-color: #00a86b;
+    -fx-border-width: 2px;
+    -fx-box-shadow: 0 0 10 rgba(0, 168, 107, 0.2);
+}
+
+.search-field::placeholder {
+    -fx-text-fill: #999999;
+}
+
+.search-button {
+    -fx-font-size: 13px;
+    -fx-padding: 12px 25px;
+    -fx-background-color: #00a86b;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.search-button:hover {
+    -fx-background-color: #008c5a;
+    -fx-box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
+}
+
+.search-button:pressed {
+    -fx-background-color: #007048;
+}
+
+/* ==================== CONTENT CONTAINER ==================== */
+.content-container {
+    -fx-background-color: #f5f5f5;
+}
+
+/* ==================== FILTER SIDEBAR ==================== */
+.filter-sidebar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.filter-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+    -fx-padding: 0 0 10 0;
+}
+
+.filter-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-text-transform: uppercase;
+}
+
+.filter-combo {
+    -fx-font-size: 12px;
+    -fx-padding: 8px 10px;
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+}
+
+.filter-combo:focused {
+    -fx-border-color: #00a86b;
+    -fx-border-width: 2px;
+}
+
+.filter-checkbox {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-padding: 5px 0;
+}
+
+.filter-checkbox:selected {
+    -fx-text-fill: #00a86b;
+}
+
+/* ==================== BUTTONS ==================== */
+.secondary-button {
+    -fx-font-size: 12px;
+    -fx-padding: 10px 15px;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-border-radius: 6px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #e8e8e8;
+    -fx-border-color: #b0b0b0;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #d8d8d8;
+}
+
+/* ==================== LISTING CONTAINER ==================== */
+.listing-container {
+    -fx-background-color: transparent;
+}
+
+.results-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ==================== LISTVIEW ==================== */
+.rentals-list {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.rentals-list:focused {
+    -fx-border-color: #00a86b;
+    -fx-border-width: 2px;
+}
+
+.rentals-list .list-cell {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.rentals-list .list-cell:filled:selected {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: #1a1a1a;
+}
+
+.rentals-list .list-cell:filled:selected:focused {
+    -fx-background-color: #c8e6c9;
+}
+
+.rentals-list .list-cell:filled:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* ==================== NO RESULTS LABEL ==================== */
+.no-results-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #999999;
+    -fx-alignment: center;
+    -fx-padding: 40px;
+    -fx-text-alignment: center;
+}
+
+/* ==================== SEPARATOR ==================== */
+.separator {
+    -fx-padding: 5px 0;
+}
+
+.separator .line {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0.5px;
+}
+
+/* ==================== PROGRESS INDICATOR ==================== */
+.progress-indicator {
+    -fx-padding: 20px;
+}
+
+/* ==================== SCROLLBAR ==================== */
+.scroll-bar {
+    -fx-font-size: 10px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+}
+
+/* ==================== HOVER EFFECTS ==================== */
+.list-cell:filled:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 168, 107, 0.15), 8, 0, 0, 2);
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (prefers-color-scheme: dark) {
+    .root {
+        -fx-base: #2a2a2a;
+        -fx-text-fill: #ffffff;
+    }
+
+    .header-section {
+        -fx-background-color: linear-gradient(to right, #0f0f1e, #1a1a2e);
+    }
+
+    .filter-sidebar,
+    .rentals-list {
+        -fx-background-color: #3a3a3a;
+        -fx-border-color: #555555;
+    }
+
+    .search-field {
+        -fx-background-color: #4a4a4a;
+        -fx-text-fill: #ffffff;
+        -fx-border-color: #666666;
+    }
+
+    .filter-combo {
+        -fx-background-color: #4a4a4a;
+        -fx-text-fill: #ffffff;
+        -fx-border-color: #666666;
+    }
+}

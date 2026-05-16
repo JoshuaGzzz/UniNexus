@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.RefundAdminController"
+            stylesheets="@../css/global.css"
+            style="-fx-background-color: #f8fafc;">
+
+    <!-- =========================================
+         TOP NAVIGATION BAR
+    ========================================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              style="
+                  -fx-background-color: white;
+                  -fx-padding: 18 28;
+                  -fx-border-color: #e5e7eb;
+                  -fx-border-width: 0 0 1 0;
+              ">
+
+            <VBox spacing="3">
+
+                <Label text="Refund Management"
+                       style="
+                           -fx-font-size: 26px;
+                           -fx-font-weight: bold;
+                           -fx-text-fill: #9D2034;
+                       "/>
+
+                <Label text="Review and manage all refund requests"
+                       style="
+                           -fx-font-size: 12px;
+                           -fx-text-fill: #6b7280;
+                       "/>
+
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- REFRESH BUTTON -->
+            <Button text="Refresh"
+                    onAction="#handleRefresh"
+                    style="
+                        -fx-background-color: #666666;
+                        -fx-text-fill: white;
+                        -fx-font-size: 13px;
+                        -fx-font-weight: bold;
+                        -fx-background-radius: 10;
+                        -fx-padding: 10 18;
+                        -fx-cursor: hand;
+                    "/>
+
+            <!-- BACK BUTTON -->
+            <Button text="← Back to Dashboard"
+                    onAction="#handleBackToDashboard"
+                    style="
+                        -fx-background-color: white;
+                        -fx-text-fill: #9D2034;
+                        -fx-font-size: 13px;
+                        -fx-font-weight: bold;
+                        -fx-border-color: #9D2034;
+                        -fx-border-radius: 10;
+                        -fx-background-radius: 10;
+                        -fx-padding: 10 18;
+                        -fx-cursor: hand;
+                    "/>
+
+        </HBox>
+    </top>
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+    <center>
+
+        <StackPane style="-fx-padding: 28;">
+
+            <VBox spacing="18"
+                  style="
+                      -fx-background-color: white;
+                      -fx-background-radius: 18;
+                      -fx-padding: 24;
+                      -fx-border-color: #e5e7eb;
+                      -fx-border-radius: 18;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 18, 0.2, 0, 4);
+                  ">
+
+                <!-- MESSAGE LABEL -->
+                <Label fx:id="messageLabel"
+                       text=""
+                       wrapText="true"
+                       style="
+                           -fx-text-fill: #9D2034;
+                           -fx-font-size: 13px;
+                           -fx-font-weight: bold;
+                       "/>
+
+                <!-- SECTION TITLE -->
+                <HBox alignment="CENTER_LEFT">
+
+                    <Label text="All Refund Requests"
+                           style="
+                               -fx-font-size: 18px;
+                               -fx-font-weight: bold;
+                               -fx-text-fill: #111827;
+                           "/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="Select a request to approve or reject"
+                           style="
+                               -fx-font-size: 12px;
+                               -fx-text-fill: #6b7280;
+                           "/>
+
+                </HBox>
+
+                <!-- TABLE -->
+                <TableView fx:id="refundTable"
+                           VBox.vgrow="ALWAYS"
+                           maxHeight="1.7976931348623157E308"
+                           maxWidth="1.7976931348623157E308"
+                           style="
+                               -fx-background-color: white;
+                               -fx-border-color: #e5e7eb;
+                               -fx-border-radius: 12;
+                               -fx-background-radius: 12;
+                               -fx-table-cell-border-color: #f1f5f9;
+                               -fx-control-inner-background: white;
+                           ">
+
+                    <columns>
+                        <TableColumn fx:id="colRefundId"      text="Refund #"      prefWidth="80"/>
+                        <TableColumn fx:id="colBuyer"         text="Buyer"          prefWidth="190"/>
+                        <TableColumn fx:id="colTransactionId" text="Order #"        prefWidth="150"/>
+                        <TableColumn fx:id="colReason"        text="Reason"         prefWidth="600"/>
+                        <TableColumn fx:id="colStatus"        text="Status"         prefWidth="195"/>
+                        <TableColumn fx:id="colDate"          text="Submitted"      prefWidth="295"/>
+                    </columns>
+
+                    <!-- EMPTY TABLE DESIGN -->
+                    <placeholder>
+
+                        <VBox alignment="CENTER"
+                              spacing="10"
+                              style="-fx-padding: 45;">
+
+                            <Label text="📋"
+                                   style="-fx-font-size: 44px;"/>
+
+                            <Label text="No refund requests found"
+                                   style="
+                                       -fx-font-size: 17px;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #374151;
+                                   "/>
+
+                            <Label text="Submitted refund requests will appear here."
+                                   style="
+                                       -fx-font-size: 12px;
+                                       -fx-text-fill: #9ca3af;
+                                   "/>
+
+                        </VBox>
+
+                    </placeholder>
+
+                </TableView>
+
+                <!-- ACTION BAR -->
+                <HBox spacing="12" alignment="CENTER_LEFT"
+                      style="-fx-padding: 4 0 0 0;">
+                    <Button fx:id="approveButton"
+                            text="✓  Approve"
+                            onAction="#handleApprove"
+                            style="
+                                -fx-background-color: #9D2034;
+                                -fx-text-fill: white;
+                                -fx-font-size: 13px;
+                                -fx-font-weight: bold;
+                                -fx-background-radius: 10;
+                                -fx-padding: 10 22;
+                                -fx-cursor: hand;
+                            "/>
+                    <Button fx:id="rejectButton"
+                            text="✕  Reject"
+                            onAction="#handleReject"
+                            style="
+                                -fx-background-color: white;
+                                -fx-text-fill: #9D2034;
+                                -fx-font-size: 13px;
+                                -fx-font-weight: bold;
+                                -fx-border-color: #9D2034;
+                                -fx-border-width: 1.5;
+                                -fx-border-radius: 10;
+                                -fx-background-radius: 10;
+                                -fx-padding: 10 22;
+                                -fx-cursor: hand;
+                            "/>
+                </HBox>
+
+            </VBox>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.DormitoryListingController"
+            stylesheets="@../css/global.css"
+            style="-fx-background-color: white;">
+
+    <top>
+        <VBox spacing="10"
+              style="-fx-background-color: white;
+                     -fx-border-color: #d9d9d9;
+                     -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets top="12" right="15" bottom="12" left="15"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="42" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/payment/uninexus-logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="UniNexus Marketplace"
+                       style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBackNavigation"
+                        style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4;"/>
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search listings..." HBox.hgrow="ALWAYS"
+                           style="-fx-background-color: white; -fx-control-inner-background: white; -fx-text-fill: #1a1a1a; -fx-border-color: #cfcfcf; -fx-border-radius: 4;"/>
+                <ComboBox fx:id="locationFilter" prefWidth="140" promptText="All Locations"
+                          style="-fx-background-color: white;"/>
+                <ComboBox fx:id="priceRangeFilter" prefWidth="120" promptText="All Prices"
+                          style="-fx-background-color: white;"/>
+                <Button text="Refresh" onAction="#handleRefresh"
+                        style="-fx-background-color: #666666; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="12" style="-fx-background-color: white;">
+            <padding>
+                <Insets top="10" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                            style="-fx-background-color: transparent; -fx-background: white;">
+                    <content>
+                        <TilePane fx:id="postTilePane" prefColumns="4" hgap="8" vgap="8"
+                                  tileAlignment="TOP_LEFT"
+                                  style="-fx-background-color: white; -fx-padding: 2;"/>
+                    </content>
+                </ScrollPane>
+                <Label fx:id="noResultsLabel" text="No listings found." visible="false"
+                       style="-fx-text-fill: #9D2034; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefWidth="420"
+                        style="-fx-background-color: transparent; -fx-background: white; -fx-border-color: #d9d9d9; -fx-border-width: 0 0 0 1;">
+                <content>
+                    <VBox spacing="0" style="-fx-background-color: white;">
+                        
+                        <VBox spacing="10" style="-fx-padding: 12;">
+                            <Label text="Item Details"
+                                   style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                            <Label fx:id="detailTitleLabel" text="No item selected" wrapText="true"
+                                   style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #000000;"/>
+                            <StackPane style="-fx-background-color: #f3f3f3; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-padding: 5;">
+                                <ImageView fx:id="detailImageView" fitWidth="360" fitHeight="180" preserveRatio="true"/>
+                            </StackPane>
+                            <GridPane hgap="8" vgap="6">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="60"/>
+                                    <ColumnConstraints hgrow="ALWAYS"/>
+                                </columnConstraints>
+                                <Label text="Type:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="detailTypeLabel" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                <Label text="Price:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="detailPriceLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                       style="-fx-text-fill: #9D2034; -fx-font-weight: bold;"/>
+                                <Label text="Status:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="detailStatusLabel" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            </GridPane>
+                            <TextArea fx:id="detailDescriptionArea" editable="false" wrapText="true" prefRowCount="3"
+                                      style="-fx-border-color: #d0d0d0;"/>
+                        </VBox>
+
+                        <Separator/>
+
+                        <VBox spacing="0" style="-fx-background-color: #fcfcfc;">
+                            <HBox style="-fx-background-color: #9D2034; -fx-padding: 10;">
+                                <Label text="My Shopping Cart" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                            </HBox>
+                            <VBox spacing="10" style="-fx-padding: 12;">
+                                <ListView fx:id="cartListView" prefHeight="200" 
+                                          style="-fx-background-color: white; -fx-border-color: #9D2034; -fx-border-radius: 4;"/>
+                                
+                                <HBox alignment="CENTER_RIGHT">
+                                    <Label fx:id="cartTotalLabel" text="Total: Php 0.00"
+                                           style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+                                </HBox>
+
+                                <VBox spacing="8">
+                                    <Button text="CONFIRM CHECKOUT" onAction="#handleCheckout" maxWidth="Infinity" prefHeight="40"
+                                            style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4;"/>
+                                    <Button text="Clear Cart" onAction="#handleClearCart" maxWidth="Infinity"
+                                            style="-fx-background-color: white; -fx-text-fill: #9D2034; -fx-border-color: #9D2034; -fx-font-weight: bold; -fx-background-radius: 4; -fx-border-radius: 4;"/>
+                                </VBox>
+                            </VBox>
+                        </VBox>
+                        <ProgressIndicator fx:id="loadingIndicator" visible="false" maxWidth="30" maxHeight="30" style="-fx-padding: 20;"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </HBox>
+    </center>
+</BorderPane>
+

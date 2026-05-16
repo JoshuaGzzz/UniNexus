@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studentmarketplace.controller.ProfileController"
+            stylesheets="@../css/global.css"
+            style="-fx-background-color: white;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 12; -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1px 0;">
+            <Label text="UniNexus Profile" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Back" onAction="#handleBack" style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="TOP_LEFT" prefWidth="520" maxWidth="520" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="Manage Personal Information" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #9D2034;"/>
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="100" prefWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                </columnConstraints>
+                <Label text="Username" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+                <Label fx:id="usernameLabel" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-text-fill: #9D2034;"/>
+
+                <Label text="Full Name" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+                <Label fx:id="fullNameLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-text-fill: #9D2034;"/>
+
+                <Label text="University" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+                <TextField fx:id="universityField" promptText="University" GridPane.rowIndex="2" GridPane.columnIndex="1" style="-fx-control-inner-background: white; -fx-text-fill: #1a1a1a;"/>
+
+                <Label text="Contact" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+                <TextField fx:id="contactField" promptText="Phone or contact info" GridPane.rowIndex="3" GridPane.columnIndex="1" style="-fx-control-inner-background: white; -fx-text-fill: #1a1a1a;"/>
+
+                <Label text="Bio" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+                <TextArea fx:id="bioArea" promptText="Short bio" prefRowCount="4" GridPane.rowIndex="4" GridPane.columnIndex="1" style="-fx-control-inner-background: white; -fx-text-fill: #1a1a1a;"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Save Changes" onAction="#handleSaveProfile" style="-fx-background-color: #9D2034; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Label fx:id="statusLabel" text="" style="-fx-text-fill: #9D2034;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
