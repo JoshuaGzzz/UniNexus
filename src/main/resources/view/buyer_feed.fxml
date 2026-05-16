@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.marketplace.controller.BuyerFeedController"
+      prefWidth="860.0" prefHeight="560.0"
+      style="-fx-background-color: #1a1a1a;">
+
+    <!-- ── Sidebar ── -->
+    <VBox prefWidth="210.0"
+          style="-fx-background-color: #1a1a1a; -fx-border-color: #2e2e2e; -fx-border-width: 0 1 0 0;">
+
+        <!-- Logo -->
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-padding: 18 16 18 16; -fx-border-color: #2e2e2e; -fx-border-width: 0 0 1 0;">
+            <ImageView fitWidth="140" fitHeight="40" preserveRatio="true">
+                <image>
+                    <Image url="@images/logo.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+
+        <!-- Nav items -->
+        <VBox style="-fx-padding: 10 0 10 0; -fx-spacing: 2;" VBox.vgrow="ALWAYS">
+
+            <!-- Dashboard -->
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="Infinity"
+                  style="-fx-padding: 10 16 10 16; -fx-cursor: hand; -fx-background-color: transparent;">
+                <Label text="⊞" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px; -fx-min-width: 16;"/>
+                <Label text="Dashboard" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px;"/>
+            </HBox>
+
+            <!-- Buy (active) -->
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="Infinity"
+                  style="-fx-padding: 10 16 10 16; -fx-cursor: hand; -fx-background-color: #cc0000;">
+                <Label text="🛍" style="-fx-text-fill: #ffffff; -fx-font-size: 13px; -fx-min-width: 16;"/>
+                <Label text="Buy" style="-fx-text-fill: #ffffff; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Sell -->
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="Infinity"
+                  style="-fx-padding: 10 16 10 16; -fx-cursor: hand; -fx-background-color: transparent;">
+                <Label text="✏" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px; -fx-min-width: 16;"/>
+                <Label text="Sell" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px;"/>
+            </HBox>
+
+            <!-- Admin Console -->
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="Infinity"
+                  style="-fx-padding: 10 16 10 16; -fx-cursor: hand; -fx-background-color: transparent;">
+                <Label text="⚙" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px; -fx-min-width: 16;"/>
+                <Label text="Admin Console" style="-fx-text-fill: #aaaaaa; -fx-font-size: 13px;"/>
+            </HBox>
+
+        </VBox>
+    </VBox>
+
+    <!-- ── Main content ── -->
+    <VBox HBox.hgrow="ALWAYS" spacing="14"
+          style="-fx-background-color: #ffffff; -fx-padding: 18 20 18 20;">
+
+        <TextField fx:id="searchField"
+                   promptText="Search"
+                   style="-fx-background-color: #2e2e2e; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #666666; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: transparent; -fx-padding: 10 14 10 14; -fx-font-size: 13px;"/>
+
+        <ScrollPane fx:id="productScrollPane"
+                    fitToWidth="true"
+                    VBox.vgrow="ALWAYS"
+                    style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-border-color: transparent;">
+            <FlowPane fx:id="productGrid"
+                      hgap="14" vgap="14"
+                      style="-fx-background-color: #ffffff; -fx-padding: 4;">
+            </FlowPane>
+        </ScrollPane>
+
+    </VBox>
+
+</HBox>

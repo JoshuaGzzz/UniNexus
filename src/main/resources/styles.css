@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════════════════
+   UNNexus — Base Stylesheet
+   Groups: do not edit colors or layout here.
+   Add your own styles in a separate file and import it
+   after this one in your FXML.
+════════════════════════════════════════════════════════════ */
+
+/* ── Root ─────────────────────────────────────────────── */
+.root-container {
+    -fx-background-color: #1a1a1a;
+}
+
+/* ── Sidebar ──────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #2e2e2e;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Logo area */
+.sidebar-logo {
+    -fx-padding: 18 16 18 16;
+    -fx-border-color: #2e2e2e;
+    -fx-border-width: 0 0 1 0;
+}
+
+.logo-placeholder {
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 6;
+}
+
+.logo-placeholder-icon {
+    -fx-text-fill: #888888;
+    -fx-font-size: 14px;
+}
+
+/* UN in red, Nexus in white */
+.logo-un {
+    -fx-text-fill: #cc0000;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.logo-nexus {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* ── Nav menu ─────────────────────────────────────────── */
+.nav-menu {
+    -fx-padding: 10 0 10 0;
+    -fx-spacing: 2;
+}
+
+.nav-item {
+    -fx-padding: 10 16 10 16;
+    -fx-cursor: hand;
+}
+
+.nav-item:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+/* Active state — apply styleClass="nav-item nav-item-active" */
+.nav-item-active {
+    -fx-background-color: #cc0000;
+}
+
+.nav-item-active:hover {
+    -fx-background-color: #dd1111;
+}
+
+.nav-icon {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 13px;
+    -fx-min-width: 16;
+}
+
+.nav-item-active .nav-icon {
+    -fx-text-fill: #ffffff;
+}
+
+.nav-label {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 13px;
+}
+
+.nav-item-active .nav-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* ── Main content ─────────────────────────────────────── */
+.main-content {
+    -fx-background-color: #1a1a1a;
+}
+
+/* Search bar */
+.search-bar {
+    -fx-background-color: #2e2e2e;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #666666;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: transparent;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 13px;
+}
+
+.search-bar:focused {
+    -fx-border-color: #cc0000;
+    -fx-border-width: 1;
+}
+
+/* Product scroll pane */
+.product-scroll {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+}
+
+.product-scroll .viewport {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+}
+
+.product-scroll > .scroll-bar {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Product grid inside the scroll pane */
+.product-grid {
+    -fx-background-color: #ffffff;
+    -fx-pref-width: 580;
+}
+
+/* ── SVG Icons ────────────────────────────────────────── */
+.nav-icon-region {
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+    -fx-background-color: #aaaaaa;
+    -fx-scale-shape: true;
+}
+
+/* Auto-switch icon color to white when the nav item is active */
+.nav-item-active .nav-icon-region {
+    -fx-background-color: #ffffff;
+}
+
+.icon-dashboard {
+    -fx-shape: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z";
+}
+
+.icon-buy {
+    -fx-shape: "M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z";
+}
+
+.icon-sell {
+    -fx-shape: "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z";
+}
+
+.icon-admin {
+    -fx-shape: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-8c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z";
+}
