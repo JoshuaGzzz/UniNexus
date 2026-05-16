@@ -37,11 +37,11 @@ public class MainApplication extends Application {
 
             // Set app icon
             try {
-                java.net.URL iconUrl = getClass().getResource("/images/app-icon.png");
+                java.net.URL iconUrl = getClass().getResource("/view/images/logo.png");
                 if (iconUrl != null) {
                     primaryStage.getIcons().add(new Image(iconUrl.toExternalForm()));
                 } else {
-                    logger.warn("Application icon not found: images/app-icon.png");
+                    logger.warn("Application icon not found: view/images/logo.png");
                 }
             } catch (Exception e) {
                 logger.warn("Could not load application icon", e);

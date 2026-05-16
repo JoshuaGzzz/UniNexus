@@ -76,10 +76,10 @@ public class ClientDashboardController {
                 }
 
                 Label title = new Label(item.getTitle());
-                title.setStyle("-fx-font-size: 13px; -fx-font-weight: 700; -fx-text-fill: #f8fafc;");
+                title.setStyle("-fx-font-size: 13px; -fx-font-weight: 700; -fx-text-fill: #1a1a1a;");
 
                 Label meta = new Label(String.format("%s | Php %.0f | %s", item.getLocation(), item.getPricePerMonth(), item.getStatus()));
-                meta.setStyle("-fx-font-size: 11px; -fx-text-fill: #cbd5e1;");
+                meta.setStyle("-fx-font-size: 11px; -fx-text-fill: #666666;");
 
                 VBox card = new VBox(2, title, meta);
                 card.setStyle("-fx-padding: 8 10 8 10; -fx-background-color: transparent;");

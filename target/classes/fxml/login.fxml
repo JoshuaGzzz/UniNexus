@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/20"
@@ -9,12 +10,13 @@
             stylesheets="@../css/global.css, @../css/dark-theme.css">
 
     <center>
-        <VBox spacing="12" alignment="CENTER" prefWidth="420" maxWidth="420" BorderPane.alignment="CENTER">
+        <VBox spacing="12" alignment="CENTER" prefWidth="420" maxWidth="420" BorderPane.alignment="CENTER" styleClass="auth-container">
             <padding>
                 <Insets top="40" right="40" bottom="40" left="40"/>
             </padding>
+            <ImageView fx:id="logoImage" preserveRatio="true" fitWidth="200" smooth="true"/>
 
-            <Label text="UniNexus" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            
             <Label text="Login" style="-fx-font-size: 18;"/>
 
             <TextField fx:id="usernameField" promptText="Username"/>
